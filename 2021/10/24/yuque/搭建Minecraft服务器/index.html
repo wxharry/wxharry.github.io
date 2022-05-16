@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Harry">
+
+
+
+    <meta name="description" content="Think big, Start Small, Learn Fast | MSCS student at NYU Courant">
+
+
+
+<title>搭建Minecraft服务器 | Harry&#39;s Pages</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Home Page</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Home Page</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6;    // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function () {
+            tocbot.refresh(obj_merge(tocbot_default_config, { hasInnerContainers: true }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function () {
+        tocbot.init(obj_merge(tocbot_default_config, { collapseDepth: 1 }));
+    });
+
+    function expandToc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, { collapseDepth: expanded ? 1 : DEPTH_MAX }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">搭建Minecraft服务器</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Harry</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">October 24, 2021&nbsp;&nbsp;5:08:46</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>又是不想学习的一天，就玩起了手机和 mc，记录一下</p>
+<p>首先要有一个基于 Linux 的服务器，我用的是淘汰下来的小米 6 手机。详细可以了解<a target="_blank" rel="noopener" href="https://www.yuque.com/u21801725/iqx6g1/me8xy1">Xiaomi Mi6 刷机 Ubuntu touch</a>。</p>
+<h2 id="简单流程"><a href="#简单流程" class="headerlink" title="简单流程"></a>简单流程</h2><ol>
+<li>安装 Java8-10。用 yum&#x2F;apt 下载 java&#x2F;jdk 都可，可以通过 apt search 看一下有哪些，基本上 default 的都可以。</li>
+<li>下载 screen，用于保持后台启动。</li>
+<li>下载 mc 的服务器端（记得看清楚版本）</li>
+<li>启动一次生成配置文件</li>
+<li>修改配置文件</li>
+<li>启动 mc 服务器</li>
+<li>打开自己的启动器进入多人模式</li>
+<li>添加服务器，输入服务器所在的 IP:PORT</li>
+<li>CONNECT</li>
+</ol>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># download java screen</span></span><br><span class="line">apt install openjdk-8-jdk -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># create a directory</span></span><br><span class="line"><span class="built_in">mkdir</span> mc &amp;&amp; <span class="built_in">cd</span> mc</span><br><span class="line"><span class="built_in">mkdir</span> pure1.16.5 &amp;&amp; <span class="built_in">cd</span> pure1.16.5</span><br><span class="line"></span><br><span class="line"><span class="comment"># download minecraft server(1.16.5)</span></span><br><span class="line">wget https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar</span><br><span class="line"></span><br><span class="line"><span class="comment"># checkout for mem</span></span><br><span class="line">free -h</span><br><span class="line"></span><br><span class="line"><span class="comment"># use java to run the server.jar file to generate configuration files for the first time</span></span><br><span class="line">java -Xms512M -Xmx1024M -jar server.jar nogui</span><br><span class="line"></span><br><span class="line"><span class="comment"># edit configs</span></span><br><span class="line">vim eula.txt</span><br><span class="line"><span class="comment"># Line 3 eula=true</span></span><br><span class="line"></span><br><span class="line">vim server.properties</span><br><span class="line"><span class="comment"># change below</span></span><br><span class="line"><span class="comment"># Line 45 online-mode=false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># allow firewall</span></span><br><span class="line">ufw allow 25565/tcp</span><br><span class="line"></span><br><span class="line"><span class="comment"># run server again</span></span><br><span class="line">java -Xms512M -Xmx1024M -jar server.jar nogui</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># If you want to keep the world running in background, use screen</span></span><br><span class="line">apt install screen</span><br><span class="line">screen -S minecraft</span><br><span class="line"></span><br><span class="line"><span class="comment"># Also, you can write a shell</span></span><br><span class="line">vim start.sh</span><br><span class="line"><span class="comment"># add java -Xms512M -Xmx1024M -jar server.jar nogui</span></span><br><span class="line"><span class="built_in">chmod</span> +x start.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># run</span></span><br><span class="line">./start.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="展示"><a href="#展示" class="headerlink" title="展示"></a>展示</h2><p>启动结果<br><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1635027295529-0fb348cd-d3cc-461c-ae9e-26fc406360ec.png#clientId=u0bd58742-8355-4&from=paste&height=147&id=u69d7383f&margin=%5Bobject%20Object%5D&name=image.png&originHeight=293&originWidth=1700&originalType=binary%E2%88%B6=1&size=510132&status=done&style=none&taskId=ue0f8779d-0f79-40e4-9b33-f98c61fa91e&width=850" alt="image.png"><br>打开自己的启动器<br><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1635027365846-05200c9f-ed26-4c71-a9a5-7810ba4114ec.png#clientId=u0bd58742-8355-4&from=paste&id=u583621a6&margin=%5Bobject%20Object%5D&name=image.png&originHeight=479&originWidth=803&originalType=binary%E2%88%B6=1&size=370531&status=done&style=none&taskId=u308dc780-81b4-496c-8359-1435fa61b28" alt="image.png"><br>添加服务器<br><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1635027434670-06ac230a-0ab4-471d-bb5a-6e44f8e6af01.png#clientId=u0bd58742-8355-4&from=paste&id=u5d095756&margin=%5Bobject%20Object%5D&name=image.png&originHeight=480&originWidth=854&originalType=binary%E2%88%B6=1&size=89950&status=done&style=none&taskId=uaae31a0a-efa0-461e-8766-27570e0e9f1" alt="image.png"><br>找到服务器<br><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1635027492386-f204d5fe-e884-48d6-8744-d55d17e09071.png#clientId=u0bd58742-8355-4&from=paste&id=u6893c356&margin=%5Bobject%20Object%5D&name=image.png&originHeight=480&originWidth=854&originalType=binary%E2%88%B6=1&size=98595&status=done&style=none&taskId=u37d034d9-5916-4baa-b1ca-0a571ca5ff0" alt="image.png"></p>
+<p>进入世界<br><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1635027610483-f9f06cd7-f6d4-4239-b662-1eb40bef275c.png#clientId=u0bd58742-8355-4&from=paste&id=ud7dd0f0e&margin=%5Bobject%20Object%5D&name=image.png&originHeight=480&originWidth=854&originalType=binary%E2%88%B6=1&size=80825&status=done&style=none&taskId=uadff300f-044e-4f54-bf76-e81464c587d" alt="image.png"></p>
+<p>芜湖~开局一条船<br><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1635027569283-86b0eba6-d249-4426-a7c8-4f2747194c1c.png#clientId=u0bd58742-8355-4&from=paste&id=u86b4208a&margin=%5Bobject%20Object%5D&name=image.png&originHeight=480&originWidth=854&originalType=binary%E2%88%B6=1&size=182144&status=done&style=none&taskId=ua5e7d916-aa5c-4f00-b5a7-34809d10e53" alt="image.png"></p>
+<p>拉上好朋友一起玩耍吧！Enjoy！</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>请确保自己服务器的端口是打开的</li>
+<li>请确保自己的 PC 端和服务器在同一局域网中</li>
+<li>如果没有正版游戏请设置服务器中的 online-mode&#x3D;false</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://linux.cn/article-9480-1.html">如何搭建一个“我的世界”服务器 - 快速指南</a><br><a target="_blank" rel="noopener" href="https://www.misterma.com/archives/864/">Linux 搭建 Minecraft Java 服务器</a><br><a target="_blank" rel="noopener" href="https://www.mcbbs.net/">我的世界中文论坛</a></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Harry</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://wxharry.github.io/2021/10/24/yuque/%E6%90%AD%E5%BB%BAMinecraft%E6%9C%8D%E5%8A%A1%E5%99%A8/">https://wxharry.github.io/2021/10/24/yuque/%E6%90%AD%E5%BB%BAMinecraft%E6%9C%8D%E5%8A%A1%E5%99%A8/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/01/03/yuque/Have%20you%20mooed%20today/">Have you mooed today?</a>
+            
+            
+            <a class="next" rel="next" href="/2021/10/19/yuque/Ubuntu%20touch%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">Ubuntu touch（持续更新...</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Harry | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

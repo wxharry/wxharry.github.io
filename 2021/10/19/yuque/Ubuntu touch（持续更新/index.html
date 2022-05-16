@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Harry">
+
+
+
+    <meta name="description" content="Think big, Start Small, Learn Fast | MSCS student at NYU Courant">
+
+
+
+<title>Ubuntu touch（持续更新... | Harry&#39;s Pages</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Home Page</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Home Page</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6;    // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function () {
+            tocbot.refresh(obj_merge(tocbot_default_config, { hasInnerContainers: true }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function () {
+        tocbot.init(obj_merge(tocbot_default_config, { collapseDepth: 1 }));
+    });
+
+    function expandToc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, { collapseDepth: expanded ? 1 : DEPTH_MAX }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Ubuntu touch（持续更新...</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Harry</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">October 18, 2021&nbsp;&nbsp;12:59:03</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="Done"><a href="#Done" class="headerlink" title="Done"></a>Done</h1><h2 id="糟糕的网络连接"><a href="#糟糕的网络连接" class="headerlink" title="糟糕的网络连接"></a>糟糕的网络连接</h2><p>第一次成功安装了 Ubuntu touch 非常兴奋，但是发现所有与网络相关的 APP，如 openstore、浏览器等都无法正常显示。</p>
+<p>重启手机，成功解决。</p>
+<h2 id="SSH-连接"><a href="#SSH-连接" class="headerlink" title="SSH 连接"></a>SSH 连接</h2><p>虽然在手机上写代码是一件很酷的事情，但这也是一件很难受且很难办的事情。小小的手机小小的屏幕，还要写代码很不现实。就算接上了蓝牙键盘，手机的小屏幕至始至终不可能有电脑屏幕使用方便。</p>
+<p>参考了<a target="_blank" rel="noopener" href="https://docs.ubports.com/en/latest/userguide/advanceduse/ssh.html">官方文档</a>，通过 SSH 的方式连接上手机，再也不用在手机上编程了。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1634533477149-4f5e18f3-e353-4fb7-bd85-0467a8c6abf1.png#clientId=uc7b7e98e-3934-4&from=paste&height=133&id=u43505c98&margin=%5Bobject%20Object%5D&name=image.png&originHeight=266&originWidth=1912&originalType=binary%E2%88%B6=1&size=330683&status=done&style=none&taskId=uca07a7bd-bce8-42b6-99ce-6f98d7a41ec&width=956" alt="image.png"></p>
+<h2 id="无法通过-apt-安装程序"><a href="#无法通过-apt-安装程序" class="headerlink" title="无法通过 apt 安装程序"></a>无法通过 apt 安装程序</h2><p>为了安全起见，Ubuntu touch 并没有给用户提供写权限，这让 apt 无法安装很多我们常用的软件，其中包括 git、vim 这种及其常用的软件，不能忍啊。给出的解决方案是通过创建 container 来安装各种需要的应用。但是目前尚未成功创建 container。</p>
+<p>上述问题并没有直接解决，网上相关的信息极少，设备是小米 6 就根本没看到。无意中看到了这个<a target="_blank" rel="noopener" href="https://forums.ubports.com/topic/1991/how-to-enable-the-desktop-mode-for-the-convergence-use-case/2">链接</a>，于是试着在手机上安装了<a target="_blank" rel="noopener" href="https://open-store.io/app/ut-tweak-tool.sverzegnassi">ut-tweak</a>。ut-tweak 可以拓展手机上的一些设置，其中就包括系统设置，可以修改读写权限。那就不需要用 container 的方式安装了，可以直接 apt install 了，芜湖~<br><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1635003452678-6d915fa1-2400-4f37-b3fe-0dad435fa78f.png#clientId=u0ec2afd4-ba6a-4&from=paste&height=90&id=udcbddc2c&margin=%5Bobject%20Object%5D&name=image.png&originHeight=118&originWidth=955&originalType=binary%E2%88%B6=1&size=101339&status=done&style=none&taskId=u58eaab74-33fd-4fb7-a581-43b5e8681df&width=727.5" alt="image.png"><br>（手机不知道怎么截图，先用远程终端截个图）</p>
+<h1 id="In-Progress"><a href="#In-Progress" class="headerlink" title="In Progress"></a>In Progress</h1>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Harry</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://wxharry.github.io/2021/10/19/yuque/Ubuntu%20touch%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">https://wxharry.github.io/2021/10/19/yuque/Ubuntu%20touch%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/10/24/yuque/%E6%90%AD%E5%BB%BAMinecraft%E6%9C%8D%E5%8A%A1%E5%99%A8/">搭建Minecraft服务器</a>
+            
+            
+            <a class="next" rel="next" href="/2021/10/18/yuque/Xiaomi%20Mi6%20%E5%88%B7%E6%9C%BAUbuntu%20touch/">Xiaomi Mi6 刷机Ubuntu touch</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Harry | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Harry">
+
+
+
+    <meta name="description" content="Think big, Start Small, Learn Fast | MSCS student at NYU Courant">
+
+
+
+<title>Xiaomi Mi6 刷机Ubuntu touch | Harry&#39;s Pages</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Home Page</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Home Page</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6;    // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function () {
+            tocbot.refresh(obj_merge(tocbot_default_config, { hasInnerContainers: true }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function () {
+        tocbot.init(obj_merge(tocbot_default_config, { collapseDepth: 1 }));
+    });
+
+    function expandToc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, { collapseDepth: expanded ? 1 : DEPTH_MAX }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Xiaomi Mi6 刷机Ubuntu touch</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Harry</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">October 18, 2021&nbsp;&nbsp;4:34:25</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>今天不想学习，把旧手机拿出来玩了玩。<br>本来小米 6 是作为备用机的，但是不知道从什么时候开始手机安装的谷歌框架失效了，也无法使用手机打开任何在 Google play 的 APP。本来在国内还好，现在到了漂亮国，没有谷歌框架的手机和板砖没有区别。（更别说我这种谷歌生态重度使用者）所以，今天不想学习（其实有很多作业），来刷机玩玩。<br>（当时刷机的时候没想到能成功，几次三番想放弃，没有记录详细流程，也没有各步骤截图，看个开心就好）</p>
+<h2 id="刷机步骤"><a href="#刷机步骤" class="headerlink" title="刷机步骤"></a>刷机步骤</h2><ol>
+<li>备份手机数据。如果手机中有什么重要的信息一定要先备份！一定要备份！一定要备份！</li>
+<li>小米官网提供了解锁手机的方法，先根据<a target="_blank" rel="noopener" href="https://www.miui.com/unlock/index.html">链接</a>解锁手机。</li>
+</ol>
+<p>接下来应该就是进入一个 bootloader 的界面。</p>
+<ol start="3">
+<li>下载对应电脑环境的 Ubuntu touch 官方的工具。<a target="_blank" rel="noopener" href="https://ubuntu-touch.io/zh_CN/get-ubuntu-touch">链接</a></li>
+<li>下载完成后打开，用手机用 USB 连接到电脑，按照指示操作即可。</li>
+</ol>
+<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><p>手机拍出来有些变色，其实是 Ubuntu 经典紫色，并且可以写 python，非常的酷。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1634526023433-f909e631-cb3f-4da5-82c7-98dde928a589.png#clientId=ub2570df5-94eb-4&from=ui&height=535&id=u2f71f796&margin=%5Bobject%20Object%5D&name=Snipaste_2021-10-17_22-58-26.png&originHeight=897&originWidth=531&originalType=binary%E2%88%B6=1&size=420234&status=done&style=none&taskId=ue364f762-506d-4c0a-b182-599f48501ca&width=317" alt="Snipaste_2021-10-17_22-58-26.png"><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1634526024133-f80f59ff-15d7-4d72-acf5-fff08945b7a9.png#clientId=ub2570df5-94eb-4&from=ui&height=533&id=u5ba82561&margin=%5Bobject%20Object%5D&name=Snipaste_2021-10-17_22-58-58.png&originHeight=1065&originWidth=604&originalType=binary%E2%88%B6=1&size=482972&status=done&style=none&taskId=uf2de00b8-4630-4d29-a177-9ca4cc00711&width=302" alt="Snipaste_2021-10-17_22-58-58.png"><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1634526025713-babd2309-926f-4b41-84a4-2f70da30da2a.png#clientId=ub2570df5-94eb-4&from=ui&height=537&id=u46899695&margin=%5Bobject%20Object%5D&name=Snipaste_2021-10-17_22-59-24.png&originHeight=1043&originWidth=589&originalType=binary%E2%88%B6=1&size=687570&status=done&style=none&taskId=ue52eeaf7-696f-4f8f-9b1b-137acf7c55c&width=303" alt="Snipaste_2021-10-17_22-59-24.png"><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1634526025613-7470c8bd-05b8-4b84-91eb-79d5ceab51ff.png#clientId=ub2570df5-94eb-4&from=ui&height=538&id=u779ff800&margin=%5Bobject%20Object%5D&name=Snipaste_2021-10-17_22-59-47.png&originHeight=1001&originWidth=586&originalType=binary%E2%88%B6=1&size=656370&status=done&style=none&taskId=ucd9685af-60fd-4fd4-a0a6-fb463ae1897&width=315" alt="Snipaste_2021-10-17_22-59-47.png"></p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="找不到开发者选项"><a href="#找不到开发者选项" class="headerlink" title="找不到开发者选项"></a>找不到开发者选项</h3><p>官方给出的方式简略的就像是不想让你成功。要打开开发者选项，需要先打开全部参数，反复点击版本信息（大约 7 次），出现打开开发者选项的提示。</p>
+<h3 id="Too-many-links"><a href="#Too-many-links" class="headerlink" title="Too many links"></a>Too many links</h3><p>网上搜到有可能是 USB 接口的问题，换了一个 USB 接口就通过了，未经证实，不知道是不是玄学。</p>
+<h3 id="Operation-not-permitted"><a href="#Operation-not-permitted" class="headerlink" title="Operation not permitted"></a>Operation not permitted</h3><p>找到了相关<a target="_blank" rel="noopener" href="https://github.com/ubports/ubports-installer/issues/2076">issue</a>，<code>fastboot -w</code> 的方法确实是有用的，具体方法如下：</p>
+<ol>
+<li>先将带有 fastboot 的路径加入环境变量中</li>
+<li>手机进入 bootloader</li>
+<li>连接手机，输入<code>fastboot -w</code></li>
+<li>出现以下界面：</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1634507088997-acd4052c-94cd-47e2-8fec-589863b0f5ec.png#clientId=ub2570df5-94eb-4&from=paste&height=313&id=ud2f69261&margin=%5Bobject%20Object%5D&name=image.png&originHeight=626&originWidth=812&originalType=binary%E2%88%B6=1&size=95519&status=done&style=none&taskId=ua86de945-f8f0-451d-acef-f1e91bcb981&width=406" alt="image.png"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Harry</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://wxharry.github.io/2021/10/18/yuque/Xiaomi%20Mi6%20%E5%88%B7%E6%9C%BAUbuntu%20touch/">https://wxharry.github.io/2021/10/18/yuque/Xiaomi%20Mi6%20%E5%88%B7%E6%9C%BAUbuntu%20touch/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/10/19/yuque/Ubuntu%20touch%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">Ubuntu touch（持续更新...</a>
+            
+            
+            <a class="next" rel="next" href="/2021/10/02/yuque/Friendship%20is%20neither%20inherited%20nor%20transitive/">Friendship is neither inherited nor transitive.</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Harry | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
