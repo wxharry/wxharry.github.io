@@ -15,7 +15,7 @@
 
 
 
-<title>Personal Web Pages | Harry&#39;s Pages</title>
+<title>My Personal Pages | Harry&#39;s Pages</title>
 
 
 
@@ -185,7 +185,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Personal Web Pages</h1>
+            <h1 class="post-title">My Personal Pages</h1>
             
                 <div class="post-meta">
                     
@@ -253,7 +253,7 @@
 </ol>
 <p>第二种方法更正规，需要在腾讯云上部署 Hexo 项目同步文章。所以我选择第一种，它之所以被称为临时解决方案是因为这种方法需要我们自己到主题模板中添加<code>&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;</code>标签实现。主题模板有的很复杂，嵌套很深，没有一个统一方法解决，也不由 yuque-hexo 控制。<br>我一开始就没成功，参考了<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/49411355/no-referrer-meta-tag-doesnt-work">stack overflow 的一篇文章</a>做了修改才最终实现。</p>
 <h2 id="无法正确部署"><a href="#无法正确部署" class="headerlink" title="无法正确部署"></a>无法正确部署</h2><p>我们需要将 Hexo 仓库下生成的代码部署到 Github Pages 下面，有很多方法可以实现。我参考的是<a target="_blank" rel="noopener" href="https://www.zhwei.cn/hexo-github-actions-yuque/#toc-heading-8">https://www.zhwei.cn/hexo-github-actions-yuque/#toc-heading-8</a>配置的脚本，因为觉得比较简单。最后发现在本地 build 和在 Actions 里面 build 的结果不同，导致网站无法正确部署。思来想去在 actions 的输出中发现生成的文件数量根本不对。原来是因为我用的 submodules 方式导入的主题，在 actions 中并没有 pull 下来。于是在 actions 的 yaml 文件中 checkout 的地方添加了 with submodules 就可以成功编译和部署了。</p>
-<h1 id="Reference-and-links"><a href="#Reference-and-links" class="headerlink" title="Reference and links"></a>Reference and links</h1><p>语雀知识库同步工具项目链接 ：<a target="_blank" rel="noopener" href="https://github.com/x-cold/yuque-hexo">https://github.com/x-cold/yuque-hexo</a><br>Hexo：语雀云端写作 Github Actions 持续集成：<a target="_blank" rel="noopener" href="https://www.zhwei.cn/hexo-github-actions-yuque/">https://www.zhwei.cn/hexo-github-actions-yuque/</a><br>hexo + github +语雀 搭建一个属于自己的博客： <a target="_blank" rel="noopener" href="https://yanisyoung.com/2020/10/11/yuque/hexo%20+%20github%20+%E8%AF%AD%E9%9B%80%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">https://yanisyoung.com/2020/10/11/yuque/hexo%20+%20github%20+%E8%AF%AD%E9%9B%80%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</a><br>使用的 Chic 主题项目仓库：<a target="_blank" rel="noopener" href="https://github.com/Siricee/hexo-theme-Chic">https://github.com/Siricee/hexo-theme-Chic</a><br>Hexo 官网：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a><br>Github Pages 官网：<a target="_blank" rel="noopener" href="https://pages.github.com/">https://pages.github.com/</a></p>
+<h1 id="Reference-and-links"><a href="#Reference-and-links" class="headerlink" title="Reference and links"></a>Reference and links</h1><p>语雀知识库同步工具项目链接 ：<a target="_blank" rel="noopener" href="https://github.com/x-cold/yuque-hexo">https://github.com/x-cold/yuque-hexo</a><br>Hexo：语雀云端写作 Github Actions 持续集成：<a target="_blank" rel="noopener" href="https://www.zhwei.cn/hexo-github-actions-yuque/">https://www.zhwei.cn/hexo-github-actions-yuque/</a><br>hexo + github +语雀 搭建一个属于自己的博客： <a target="_blank" rel="noopener" href="https://yanisyoung.com/2020/10/11/yuque/hexo%20+%20github%20+%E8%AF%AD%E9%9B%80%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">https://yanisyoung.com/2020/10/11/yuque/hexo+github+语雀 搭建一个属于自己的博客</a><br>使用的 Chic 主题项目仓库：<a target="_blank" rel="noopener" href="https://github.com/Siricee/hexo-theme-Chic">https://github.com/Siricee/hexo-theme-Chic</a><br>Hexo 官网：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a><br>Github Pages 官网：<a target="_blank" rel="noopener" href="https://pages.github.com/">https://pages.github.com/</a></p>
 
         </div>
 
@@ -268,7 +268,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://wxharry.github.io/2022/05/18/yuque/Personal%20Web%20Pages/">https://wxharry.github.io/2022/05/18/yuque/Personal%20Web%20Pages/</a></span>
+                        <span><a href="https://wxharry.github.io/2022/05/18/yuque/My%20Personal%20Pages/">https://wxharry.github.io/2022/05/18/yuque/My%20Personal%20Pages/</a></span>
                     </p>
                 
                 
