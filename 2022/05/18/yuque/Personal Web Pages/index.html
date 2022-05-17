@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Harry">
+
+
+
+    <meta name="description" content="Think big, Start Small, Learn Fast | MSCS student at NYU Courant">
+
+
+
+<title>Personal Web Pages | Harry&#39;s Pages</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <meta name="referrer" content="no-referrer" />
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Home Page</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Home Page</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6;    // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function () {
+            tocbot.refresh(obj_merge(tocbot_default_config, { hasInnerContainers: true }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function () {
+        tocbot.init(obj_merge(tocbot_default_config, { collapseDepth: 1 }));
+    });
+
+    function expandToc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, { collapseDepth: expanded ? 1 : DEPTH_MAX }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Personal Web Pages</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Harry</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">May 18, 2022&nbsp;&nbsp;4:21:33</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p><a href="https://wxharry.github.io/">WELCOME TO VISIT!</a><br>考完试做的第一件事就是搭了个人网页。以下简单记录一下搭建流程和遇到的坑：</p>
+<h1 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h1><p>即使是给自己用的东西，也要先搞清楚需求。在复习考试的间隙，我想了以下的需求：</p>
+<ul>
+<li>通过 GitHub Pages 部署</li>
+<li>要有一个好看的主题</li>
+<li>能自动同步我在语雀已发布或新发布的文章</li>
+</ul>
+<p>于是乎，我找了一些链接，看了一些文档，开了个 issue 收集看到的比较详细的参考文章。详见<a target="_blank" rel="noopener" href="https://github.com/wxharry/wxharry.github.io/issues/1">issue</a></p>
+<h1 id="Design-Diagram"><a href="#Design-Diagram" class="headerlink" title="Design Diagram"></a>Design Diagram</h1><p>整个流程要说简单，涉及的挺多的；要说复杂，倒也没有什么额外的东西。在最后搭建完成后，我也算搞清了整个结构，记录一下：<br><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22210801/1652820058842-aa37522c-b374-46a5-ad42-3726f5cb9b35.jpeg"><br>简单介绍一下：</p>
+<ul>
+<li>语雀：编写和发布文章的地方</li>
+<li>腾讯云：<ul>
+<li>当语雀新发布文章，触发 Hexo 项目进行更新</li>
+</ul>
+</li>
+<li>Hexo：负责实现<ul>
+<li>整体架构</li>
+<li>好看的主题</li>
+<li>更新语雀文章</li>
+<li>生成并部署项目</li>
+</ul>
+</li>
+<li>Github Pages：展示个人主页</li>
+</ul>
+<p>工作流如下：<br>语雀新发布的文章会通过 webhook 触发腾讯云执行云函数，云函数触发 Hexo 项目中的 Github Actions 拉取并更新文章，最后更新在 Github Pages。</p>
+<h1 id="Get-Started！"><a href="#Get-Started！" class="headerlink" title="Get Started！"></a>Get Started！</h1><p>磨刀不误砍柴工，搞清楚需求和结构，能更快达成目标。</p>
+<h2 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h2><p>为了方便展示最终效果，我选择使用 Github Pages 作为个人主页的部署地址。对于我这样每天都上 GitHub 看看逛逛的人，上手比较简单，也不需要考虑域名的问题。链接：<a target="_blank" rel="noopener" href="https://pages.github.com/">Github Pages</a></p>
+<h2 id="Hexo-Project"><a href="#Hexo-Project" class="headerlink" title="Hexo Project"></a>Hexo Project</h2><blockquote>
+<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a target="_blank" rel="noopener" href="http://daringfireball.net/projects/markdown/">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br>—— 来自<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">Hexo 官方文档</a></p>
+</blockquote>
+<p>选择 Hexo 是因为看到了非常好看的主题，并且也看到不少相关如何将语雀知识库导入 Hexo 的文章。<br>Hexo Project 是独立于 Github Pages 的项目。</p>
+<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>参考官网：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">https://hexo.io/zh-cn/docs/index.html</a><br>安装 Hexo 跟着官网走，以下是基本流程：</p>
+<ol>
+<li>需要安装 Git 和 Node 环境</li>
+<li>下载安装 Hexo</li>
+<li>建站</li>
+<li>配置</li>
+<li>命令</li>
+</ol>
+<p>当你走到这里，应该已经可以在本地部署起一个空的 Hexo 项目了。</p>
+<h3 id="Theme"><a href="#Theme" class="headerlink" title="Theme"></a>Theme</h3><p>在<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a>挑选一个自己喜欢的主题，并根据作者给的 Instruction 加入自己的项目中。<br>我用的是来自 Siricee 大佬的<a target="_blank" rel="noopener" href="https://github.com/Siricee/hexo-theme-Chic">Chic 主题</a>，简约风，可黑白色切换，非常好看。通过将项目克隆到 Hexo 项目的 themes 下，并 Hexo 相关配置文件即可切换主题。</p>
+<h2 id="Synchronization"><a href="#Synchronization" class="headerlink" title="Synchronization"></a>Synchronization</h2><h3 id="yuque-hexo"><a href="#yuque-hexo" class="headerlink" title="yuque-hexo"></a>yuque-hexo</h3><p>我们通过<a target="_blank" rel="noopener" href="https://github.com/x-cold/yuque-hexo">yuque-hexo</a>同步知识库的文章，具体下载和部署方法参考项目的 README。主要是 install, clean, and sync</p>
+<h3 id="云函数"><a href="#云函数" class="headerlink" title="云函数"></a>云函数</h3><p>为了能即时同步语雀新发布的文章，通过语雀 webhook 触发云函数触发 Hexo 项目更新。我参考了<a target="_blank" rel="noopener" href="https://www.zhwei.cn/hexo-github-actions-yuque/#toc-heading-9">Hongwei 的文档</a>。</p>
+<h1 id="Pits"><a href="#Pits" class="headerlink" title="Pits"></a>Pits</h1><h2 id="无法显示图片"><a href="#无法显示图片" class="headerlink" title="无法显示图片"></a>无法显示图片</h2><p>在 yuque-hexo 项目中有这样一个相关的 Issue 是关于这个问题的：<a target="_blank" rel="noopener" href="https://github.com/x-cold/yuque-hexo/issues/41">https://github.com/x-cold/yuque-hexo/issues/41</a>。其中提到的了两个解决方案：</p>
+<ol>
+<li>临时解决方案。添加 no-referrer</li>
+<li>使用图床</li>
+</ol>
+<p>第二种方法更正规，需要在腾讯云上部署 Hexo 项目同步文章。所以我选择第一种，它之所以被称为临时解决方案是因为这种方法需要我们自己到主题模板中添加<code>&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;</code>标签实现。主题模板有的很复杂，嵌套很深，没有一个统一方法解决，也不由 yuque-hexo 控制。<br>我一开始就没成功，参考了<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/49411355/no-referrer-meta-tag-doesnt-work">stack overflow 的一篇文章</a>做了修改才最终实现。</p>
+<h2 id="无法正确部署"><a href="#无法正确部署" class="headerlink" title="无法正确部署"></a>无法正确部署</h2><p>我们需要将 Hexo 仓库下生成的代码部署到 Github Pages 下面，有很多方法可以实现。我参考的是<a target="_blank" rel="noopener" href="https://www.zhwei.cn/hexo-github-actions-yuque/#toc-heading-8">https://www.zhwei.cn/hexo-github-actions-yuque/#toc-heading-8</a>配置的脚本，因为觉得比较简单。最后发现在本地 build 和在 Actions 里面 build 的结果不同，导致网站无法正确部署。思来想去在 actions 的输出中发现生成的文件数量根本不对。原来是因为我用的 submodules 方式导入的主题，在 actions 中并没有 pull 下来。于是在 actions 的 yaml 文件中 checkout 的地方添加了 with submodules 就可以成功编译和部署了。</p>
+<h1 id="Reference-and-links"><a href="#Reference-and-links" class="headerlink" title="Reference and links"></a>Reference and links</h1><p>语雀知识库同步工具项目链接 ：<a target="_blank" rel="noopener" href="https://github.com/x-cold/yuque-hexo">https://github.com/x-cold/yuque-hexo</a><br>Hexo：语雀云端写作 Github Actions 持续集成：<a target="_blank" rel="noopener" href="https://www.zhwei.cn/hexo-github-actions-yuque/">https://www.zhwei.cn/hexo-github-actions-yuque/</a><br>hexo + github +语雀 搭建一个属于自己的博客： <a target="_blank" rel="noopener" href="https://yanisyoung.com/2020/10/11/yuque/hexo%20+%20github%20+%E8%AF%AD%E9%9B%80%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">https://yanisyoung.com/2020/10/11/yuque/hexo%20+%20github%20+%E8%AF%AD%E9%9B%80%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</a><br>使用的 Chic 主题项目仓库：<a target="_blank" rel="noopener" href="https://github.com/Siricee/hexo-theme-Chic">https://github.com/Siricee/hexo-theme-Chic</a><br>Hexo 官网：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a><br>Github Pages 官网：<a target="_blank" rel="noopener" href="https://pages.github.com/">https://pages.github.com/</a></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Harry</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://wxharry.github.io/2022/05/18/yuque/Personal%20Web%20Pages/">https://wxharry.github.io/2022/05/18/yuque/Personal%20Web%20Pages/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2022/05/18/hello-world/">Hello World</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Harry | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
