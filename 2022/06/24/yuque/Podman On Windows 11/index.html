@@ -15,7 +15,7 @@
 
 
 
-<title>Hello World | Harry&#39;s Pages</title>
+<title>Podman On Windows 11 | Harry&#39;s Pages</title>
 
 
 
@@ -185,7 +185,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Hello World</h1>
+            <h1 class="post-title">Podman On Windows 11</h1>
             
                 <div class="post-meta">
                     
@@ -194,7 +194,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">May 23, 2022&nbsp;&nbsp;10:41:31</a>
+                        Date: <a href="#">June 24, 2022&nbsp;&nbsp;11:01:40</a>
                         </span>
                     
                     
@@ -203,19 +203,12 @@
         </header>
 
         <div class="post-content">
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+            <h1 id="Trials"><a href="#Trials" class="headerlink" title="Trials"></a>Trials</h1><p>My work at Silicon Labs required to put my project into a pipeline in Jenkins. So I implemented Jenkins locally on a Windows 10 machine. However, the Jenkinsfile is different for Linux and Windows machines and Linux has a more complex shell which turned out to be useful to the project.</p>
+<p>My first attempt was to install WSL which is necessary. I tried to install Jenkins in WSL and ran it locally. However, there are some issue with VPN setting for WSL2. So, when I work from home, Jenkins needs VPN to connect to the company’s bitbucket and Jenkins in WSL cannot do that.</p>
+<p>Then I tried to connect WSL as a working node for pipeline, but stuck at the credential configuration things. I don’t know why but the ssh connection is so bad and I could not even connect to the host.</p>
+<p>It took me a whole day working on this and had nothing. I gave in at last, adapting Jenkinsfile and commands and project to Powershell.</p>
+<p>The next day, I asked my colleague how to tackle this situation. He said it might take time to give an access to a Jenkins server and suggested me to run containers locally as a working node. Actually, I did saw a few articles doing that work but I never though about that because I once installed Docker Desktop on my old laptop and it sucks. Joe also didn’t recommand Docker because company needs licence (which we don’t have one) to use Docker Desktop. He recommanded <a target="_blank" rel="noopener" href="https://podman.io/">Podman</a> a good replacement for Docker. And he also sent me a link on <a target="_blank" rel="noopener" href="https://plugins.jenkins.io/swarm/">swarm</a> to connect jenkins. I worked on this practice for the afternoon and it worked! And with the power of Bash, I greatly simplified the Jenkinsfile.</p>
+<h1 id="Install-Podman"><a href="#Install-Podman" class="headerlink" title="Install Podman"></a>Install Podman</h1><p>You can follow <a target="_blank" rel="noopener" href="https://www.redhat.com/sysadmin/run-podman-windows">run podman on windows machine</a> to install podman. This post is super detailed on how you should do. Before installing podman, please remember to install WSL first. Microsoft has an <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/wsl/install-manual">install manual</a> on it.<br>After you install Podman, run command <code>podman run quay.io/podman/hello</code> and you should have an output like this:<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22210801/1656043327258-45c1e8d2-77fb-475a-a269-20280dd9598b.png#clientId=u64947e3e-cab2-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=499&id=uf5d6ac9d&margin=%5Bobject%20Object%5D&name=image.png&originHeight=624&originWidth=868&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=52573&status=done&style=none&taskId=u1a58ffc8-70e0-47ef-a199-692cedcec45&title=&width=694.4" alt="image.png"></p>
 
         </div>
 
@@ -230,7 +223,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://wxharry.github.io/2022/05/23/hello-world/">https://wxharry.github.io/2022/05/23/hello-world/</a></span>
+                        <span><a href="https://wxharry.github.io/2022/06/24/yuque/Podman%20On%20Windows%2011/">https://wxharry.github.io/2022/06/24/yuque/Podman%20On%20Windows%2011/</a></span>
                     </p>
                 
                 
@@ -259,7 +252,7 @@
         <section class="post-nav">
             
             
-            <a class="next" rel="next" href="/2022/05/18/yuque/My%20Personal%20Pages/">My Personal Pages</a>
+            <a class="next" rel="next" href="/2022/06/24/hello-world/">Hello World</a>
             
         </section>
 
