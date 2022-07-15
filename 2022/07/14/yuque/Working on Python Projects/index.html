@@ -15,7 +15,7 @@
 
 
 
-<title>Hello World | Harry&#39;s Pages</title>
+<title>Working on Python Projects | Harry&#39;s Pages</title>
 
 
 
@@ -185,7 +185,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Hello World</h1>
+            <h1 class="post-title">Working on Python Projects</h1>
             
                 <div class="post-meta">
                     
@@ -194,7 +194,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">July 13, 2022&nbsp;&nbsp;21:39:00</a>
+                        Date: <a href="#">July 14, 2022&nbsp;&nbsp;11:01:40</a>
                         </span>
                     
                     
@@ -203,19 +203,39 @@
         </header>
 
         <div class="post-content">
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+            <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Python is a powerful language. During my internship, I was assigned to work on a Python project. I am familiar with Python as a script. So, it was not a big deal for me to work out the project which could meet most of the specifications. However, when it comes to deployment, it is different. For now, I uploaded it to <a target="_blank" rel="noopener" href="https://test.pypi.org/">test-pypi</a>, used <a target="_blank" rel="noopener" href="https://python-poetry.org/">poetry</a> for dependency management, and <a target="_blank" rel="noopener" href="https://github.com/pyenv-win/pyenv-win">pyenv</a> for developing and testing.<br>The whole thing is quite interesting and I am also hoping it could be helpful for someone.<br>(You don’t need any of the below things if you are using Python as a script)</p>
+<h1 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h1><p>I am going to talk about deployment first because it worked fine on a single environment for one project. But when I finished most of my developing job and tried to put it into a pipeline, a question came out:<br><strong>How to run this project on another machine?</strong><br>I was thinking if I could download it via <code>pip install &lt;package_name&gt;</code> and I found the instructions at <a target="_blank" rel="noopener" href="https://packaging.python.org/en/latest/tutorials/packaging-projects/">official tutorials</a>. Following the instructions, I refactored the project and made it a module to be downloaded via <code>pip</code>.<br>However, after one week’s work, I decided to make some changes: use <a target="_blank" rel="noopener" href="https://python-poetry.org/">poetry</a> to set up the project instead because it simplifies the whole process in some aspects:</p>
+<ol>
+<li>it can build the project with <code>poetry build</code></li>
+<li>it can publish with configuring it once</li>
+<li>it has only one configuration file <code>pyproject.toml</code></li>
+<li>it can add and install dependencies just like <code>npm</code>or <code>yarn</code>does</li>
+</ol>
+<p>I was amazed by this fancy tool and quickly change the current packaging workflow to poetry.</p>
+<h1 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h1><p>As mentioned before, I didn’t manage the dependencies at first until I had a lot of problems after I deployed the tool on a different machine.</p>
+<ul>
+<li>Some dependencies are missing</li>
+<li>Using a development version rather than the deployed version</li>
+<li>How can I test in other Python environment?</li>
+</ul>
+<p>Therefore, I started to use virtual environment to handle the above issues. Of course, if you are only using Python as a script, it is not worthy to get a new environment; if you are working on a single project, it might be meaningless to get an isolated environment. But, if you are working on a different projects, want to test in different environment, virtual environment could help a lot.<br>There are basically 3 tools to introduce:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv">**pyenv **</a><strong>- downloads versions of Python</strong></li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/venv.html">**venv **</a><strong>- creates isolated virtual environment</strong></li>
+<li><a target="_blank" rel="noopener" href="https://virtualenv.pypa.io/en/latest/">**virtualenv **</a><strong>- creates an virtual environment with a specified Python version</strong></li>
+</ul>
+<p>Also, if you are using Linux or mac, there is a plugin named pyenv-virtualenv to do all these work with only pyenv. Unfortunately, according to feature: <a target="_blank" rel="noopener" href="https://github.com/pyenv-win/pyenv-win/issues/61">pyenv virtualenv command · Issue #61</a>. pyenv-win doesn’t support the plugin and might would not support it.<br><strong>Here is the process of getting a virtual environment for developing and testing</strong></p>
+<ol>
+<li>Download a version of Python:<code>pyenv install 3.9.0</code><ol>
+<li>if we want to know where is it, looking for <code>C:\Users\%USERNAME%\.pyenv\pyenv-win\versions\3.9.0\python.exe</code></li>
+<li>Or, you can set the local python with <code>pyenv local 3.9.0</code> and get the location with command <code>pyenv which 3.9.0</code>. It should give you the location.</li>
+</ol>
+</li>
+<li>Then create a virtual environment<code>virturalenv -p=&lt;python_location&gt; &lt;your_venv_name&gt;</code>. A folder should be generated in your project with name <code>&lt;your_venv_name&gt;</code> and this is your virtual environment.</li>
+<li>To activate, just run command <code>&lt;your_venv_name&gt;\Scripts\activate</code>and you will be in. Try running <code>pip list</code> to see if it is isolated. If you want to leave the environment, just run<code>deactivate</code></li>
+</ol>
+<p>In case you didn’t notice, I did’t use <code>venv</code>here because <code>venv</code>can only create virtual environment with the same python within your environment. So we used <code>virturalenv</code>as a workaround. You can pick up your tools based on your situations.</p>
+<h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p>I am not using <code>conda</code>which is also a well-known tool for this for no reason. I just randomly chose a tool and recorded everything’s come up to my mind. I might add new stories if I start to use conda. Let’s stay tuned.</p>
 
         </div>
 
@@ -230,7 +250,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://wxharry.github.io/2022/07/14/hello-world/">https://wxharry.github.io/2022/07/14/hello-world/</a></span>
+                        <span><a href="https://wxharry.github.io/2022/07/14/yuque/Working%20on%20Python%20Projects/">https://wxharry.github.io/2022/07/14/yuque/Working%20on%20Python%20Projects/</a></span>
                     </p>
                 
                 
@@ -257,6 +277,8 @@
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/07/15/hello-world/">Hello World</a>
             
             
             <a class="next" rel="next" href="/2022/06/24/yuque/Podman%20On%20Windows%2011/">Podman On Windows 11</a>
