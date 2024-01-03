@@ -15,7 +15,7 @@
 
 
 
-<title>Xiaomi Mi6 刷机Ubuntu touch | Harry&#39;s Pages</title>
+<title>Working on Python Project | Harry&#39;s Pages</title>
 
 
 
@@ -191,7 +191,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Xiaomi Mi6 刷机Ubuntu touch</h1>
+            <h1 class="post-title">Working on Python Project</h1>
             
                 <div class="post-meta">
                     
@@ -200,7 +200,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">October 18, 2021&nbsp;&nbsp;4:34:25</a>
+                        Date: <a href="#">July 14, 2022&nbsp;&nbsp;11:01:40</a>
                         </span>
                     
                     
@@ -209,27 +209,39 @@
         </header>
 
         <div class="post-content">
-            <p>今天不想学习，把旧手机拿出来玩了玩。<br>本来小米 6 是作为备用机的，但是不知道从什么时候开始手机安装的谷歌框架失效了，也无法使用手机打开任何在 Google play 的 APP。本来在国内还好，现在到了漂亮国，没有谷歌框架的手机和板砖没有区别。（更别说我这种谷歌生态重度使用者）所以，今天不想学习（其实有很多作业），来刷机玩玩。<br>（当时刷机的时候没想到能成功，几次三番想放弃，没有记录详细流程，也没有各步骤截图，看个开心就好）</p>
-<h2 id="刷机步骤"><a href="#刷机步骤" class="headerlink" title="刷机步骤"></a>刷机步骤</h2><ol>
-<li>备份手机数据。如果手机中有什么重要的信息一定要先备份！一定要备份！一定要备份！</li>
-<li>小米官网提供了解锁手机的方法，先根据<a target="_blank" rel="noopener" href="https://www.miui.com/unlock/index.html">链接</a>解锁手机。</li>
-</ol>
-<p>接下来应该就是进入一个 bootloader 的界面。</p>
-<ol start="3">
-<li>下载对应电脑环境的 Ubuntu touch 官方的工具。<a target="_blank" rel="noopener" href="https://ubuntu-touch.io/zh_CN/get-ubuntu-touch">链接</a></li>
-<li>下载完成后打开，用手机用 USB 连接到电脑，按照指示操作即可。</li>
-</ol>
-<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><p>手机拍出来有些变色，其实是 Ubuntu 经典紫色，并且可以写 python，非常的酷。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1634526023433-f909e631-cb3f-4da5-82c7-98dde928a589.png#clientId=ub2570df5-94eb-4&from=ui&height=535&id=u2f71f796&originHeight=897&originWidth=531&originalType=binary%E2%88%B6=1&size=420234&status=done&style=none&taskId=ue364f762-506d-4c0a-b182-599f48501ca&width=317" alt="Snipaste_2021-10-17_22-58-26.png"><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1634526024133-f80f59ff-15d7-4d72-acf5-fff08945b7a9.png#clientId=ub2570df5-94eb-4&from=ui&height=533&id=u5ba82561&originHeight=1065&originWidth=604&originalType=binary%E2%88%B6=1&size=482972&status=done&style=none&taskId=uf2de00b8-4630-4d29-a177-9ca4cc00711&width=302" alt="Snipaste_2021-10-17_22-58-58.png"><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1634526025713-babd2309-926f-4b41-84a4-2f70da30da2a.png#clientId=ub2570df5-94eb-4&from=ui&height=537&id=u46899695&originHeight=1043&originWidth=589&originalType=binary%E2%88%B6=1&size=687570&status=done&style=none&taskId=ue52eeaf7-696f-4f8f-9b1b-137acf7c55c&width=303" alt="Snipaste_2021-10-17_22-59-24.png"><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1634526025613-7470c8bd-05b8-4b84-91eb-79d5ceab51ff.png#clientId=ub2570df5-94eb-4&from=ui&height=538&id=u779ff800&originHeight=1001&originWidth=586&originalType=binary%E2%88%B6=1&size=656370&status=done&style=none&taskId=ucd9685af-60fd-4fd4-a0a6-fb463ae1897&width=315" alt="Snipaste_2021-10-17_22-59-47.png"></p>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="找不到开发者选项"><a href="#找不到开发者选项" class="headerlink" title="找不到开发者选项"></a>找不到开发者选项</h3><p>官方给出的方式简略的就像是不想让你成功。要打开开发者选项，需要先打开全部参数，反复点击版本信息（大约 7 次），出现打开开发者选项的提示。</p>
-<h3 id="Too-many-links"><a href="#Too-many-links" class="headerlink" title="Too many links"></a>Too many links</h3><p>网上搜到有可能是 USB 接口的问题，换了一个 USB 接口就通过了，未经证实，不知道是不是玄学。</p>
-<h3 id="Operation-not-permitted"><a href="#Operation-not-permitted" class="headerlink" title="Operation not permitted"></a>Operation not permitted</h3><p>找到了相关<a target="_blank" rel="noopener" href="https://github.com/ubports/ubports-installer/issues/2076">issue</a>，<code>fastboot -w</code> 的方法确实是有用的，具体方法如下：</p>
+            <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Python is a powerful language. During my internship, I was assigned to work on a Python project. I am familiar with Python as a script. So, it was not a big deal for me to work out the project which could meet most of the specifications. However, when it comes to deployment, it is different. For now, I uploaded it to <a target="_blank" rel="noopener" href="https://test.pypi.org/">test-pypi</a>, used <a target="_blank" rel="noopener" href="https://python-poetry.org/">poetry</a> for dependency management, and <a target="_blank" rel="noopener" href="https://github.com/pyenv-win/pyenv-win">pyenv</a> for developing and testing.<br>The whole thing is quite interesting and I am also hoping it could be helpful for someone.<br>(You don’t need any of the below things if you are using Python as a script)</p>
+<h1 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h1><p>I am going to talk about deployment first because it worked fine on a single environment for one project. But when I finished most of my developing job and tried to put it into a pipeline, a question came out:<br><strong>How to run this project on another machine?</strong><br>I was thinking if I could download it via <code>pip install &lt;package_name&gt;</code> and I found the instructions at <a target="_blank" rel="noopener" href="https://packaging.python.org/en/latest/tutorials/packaging-projects/">official tutorials</a>. Following the instructions, I refactored the project and made it a module to be downloaded via <code>pip</code>.<br>However, after one week’s work, I decided to make some changes: use <a target="_blank" rel="noopener" href="https://python-poetry.org/">poetry</a> to set up the project instead because it simplifies the whole process in some aspects:</p>
 <ol>
-<li>先将带有 fastboot 的路径加入环境变量中</li>
-<li>手机进入 bootloader</li>
-<li>连接手机，输入<code>fastboot -w</code></li>
-<li>出现以下界面：</li>
+<li>it can build the project with <code>poetry build</code></li>
+<li>it can publish with configuring it once</li>
+<li>it has only one configuration file <code>pyproject.toml</code></li>
+<li>it can add and install dependencies just like <code>npm</code>or <code>yarn</code>does</li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/22210801/1634507088997-acd4052c-94cd-47e2-8fec-589863b0f5ec.png#clientId=ub2570df5-94eb-4&from=paste&height=313&id=ud2f69261&originHeight=626&originWidth=812&originalType=binary%E2%88%B6=1&size=95519&status=done&style=none&taskId=ua86de945-f8f0-451d-acef-f1e91bcb981&width=406" alt="image.png"></p>
+<p>I was amazed by this fancy tool and quickly change the current packaging workflow to poetry.</p>
+<h1 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h1><p>As mentioned before, I didn’t manage the dependencies at first until I had a lot of problems after I deployed the tool on a different machine.</p>
+<ul>
+<li>Some dependencies are missing</li>
+<li>Using a development version rather than the deployed version</li>
+<li>How can I test in other Python environment?</li>
+</ul>
+<p>Therefore, I started to use virtual environment to handle the above issues. Of course, if you are only using Python as a script, it is not worthy to get a new environment; if you are working on a single project, it might be meaningless to get an isolated environment. But, if you are working on a different projects, want to test in different environment, virtual environment could help a lot.<br>There are basically 3 tools to introduce:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv">**pyenv **</a><strong>- downloads versions of Python</strong></li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/venv.html">**venv **</a><strong>- creates isolated virtual environment</strong></li>
+<li><a target="_blank" rel="noopener" href="https://virtualenv.pypa.io/en/latest/">**virtualenv **</a><strong>- creates an virtual environment with a specified Python version</strong></li>
+</ul>
+<p>Also, if you are using Linux or mac, there is a plugin named pyenv-virtualenv to do all these work with only pyenv. Unfortunately, according to feature: <a target="_blank" rel="noopener" href="https://github.com/pyenv-win/pyenv-win/issues/61">pyenv virtualenv command · Issue #61</a>. pyenv-win doesn’t support the plugin and might would not support it.<br><strong>Here is the process of getting a virtual environment for developing and testing</strong></p>
+<ol>
+<li>Download a version of Python:<code>pyenv install 3.9.0</code><ol>
+<li>if we want to know where is it, looking for <code>C:\Users\%USERNAME%\.pyenv\pyenv-win\versions\3.9.0\python.exe</code></li>
+<li>Or, you can set the local python with <code>pyenv local 3.9.0</code> and get the location with command <code>pyenv which 3.9.0</code>. It should give you the location.</li>
+</ol>
+</li>
+<li>Then create a virtual environment<code>virturalenv -p=&lt;python_location&gt; &lt;your_venv_name&gt;</code>. A folder should be generated in your project with name <code>&lt;your_venv_name&gt;</code> and this is your virtual environment.</li>
+<li>To activate, just run command <code>&lt;your_venv_name&gt;\Scripts\activate</code>and you will be in. Try running <code>pip list</code> to see if it is isolated. If you want to leave the environment, just run<code>deactivate</code></li>
+</ol>
+<p>In case you didn’t notice, I did’t use <code>venv</code>here because <code>venv</code>can only create virtual environment with the same python within your environment. So we used <code>virturalenv</code>as a workaround. You can pick up your tools based on your situations.</p>
+<h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p>I am not using <code>conda</code>which is also a well-known tool for this for no reason. I just randomly chose a tool and recorded everything’s come up to my mind. I might add new stories if I start to use conda. Let’s stay tuned.</p>
 
         </div>
 
@@ -244,7 +256,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://wxharry.github.io/2021/10/18/yuque/Xiaomi%20Mi6%20%E5%88%B7%E6%9C%BAUbuntu%20touch/">https://wxharry.github.io/2021/10/18/yuque/Xiaomi%20Mi6%20%E5%88%B7%E6%9C%BAUbuntu%20touch/</a></span>
+                        <span><a href="https://wxharry.github.io/2022/07/14/yuque/Working%20on%20Python%20Project/">https://wxharry.github.io/2022/07/14/yuque/Working%20on%20Python%20Project/</a></span>
                     </p>
                 
                 
@@ -272,10 +284,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/10/19/yuque/Ubuntu%20touch%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">Ubuntu touch（持续更新...</a>
+                <a class="prev" rel="prev" href="/2024/01/01/yuque/2023%F0%9F%8E%93/">2023🎓</a>
             
             
-            <a class="next" rel="next" href="/2021/10/02/yuque/Friendship%20is%20neither%20inherited%20nor%20transitive/">Friendship is neither inherited nor transitive.</a>
+            <a class="next" rel="next" href="/2022/06/24/yuque/Podman%20On%20Windows%2011/">Podman On Windows 11</a>
             
         </section>
 

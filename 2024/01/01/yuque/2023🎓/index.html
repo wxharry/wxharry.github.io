@@ -15,7 +15,7 @@
 
 
 
-<title>To Reader | Harry&#39;s Pages</title>
+<title>2023🎓 | Harry&#39;s Pages</title>
 
 
 
@@ -122,76 +122,11 @@
                 <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    var tocbot_timer;
-    var DEPTH_MAX = 6; // 为 6 时展开所有
-    var tocbot_default_config = {
-        tocSelector: '.tocbot-list',
-        contentSelector: '.post-content',
-        headingSelector: 'h1, h2, h3, h4, h5',
-        orderedList: false,
-        scrollSmooth: true,
-        onClick: extend_click,
-    };
-
-    function extend_click() {
-        clearTimeout(tocbot_timer);
-        tocbot_timer = setTimeout(function() {
-            tocbot.refresh(obj_merge(tocbot_default_config, {
-                hasInnerContainers: true
-            }));
-        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
-    }
-
-    document.ready(function() {
-        tocbot.init(obj_merge(tocbot_default_config, {
-            collapseDepth: 1
-        }));
-    });
-
-    function expand_toc() {
-        var b = document.querySelector('.tocbot-toc-expand');
-        var expanded = b.getAttribute('data-expanded');
-        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
-        tocbot.refresh(obj_merge(tocbot_default_config, {
-            collapseDepth: expanded ? 1 : DEPTH_MAX
-        }));
-        b.innerText = expanded ? 'Expand all' : 'Collapse all';
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    function obj_merge(target, source) {
-        for (var item in source) {
-            if (source.hasOwnProperty(item)) {
-                target[item] = source[item];
-            }
-        }
-        return target;
-    }
-</script>
-    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">To Reader</h1>
+            <h1 class="post-title">2023🎓</h1>
             
                 <div class="post-meta">
                     
@@ -200,7 +135,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">October 10, 2022&nbsp;&nbsp;10:41:50</a>
+                        Date: <a href="#">January 1, 2024&nbsp;&nbsp;3:11:56</a>
                         </span>
                     
                     
@@ -209,14 +144,7 @@
         </header>
 
         <div class="post-content">
-            <h1 id="To-Reader"><a href="#To-Reader" class="headerlink" title="To Reader"></a>To Reader</h1><p>Hi Reader,</p>
-<p>Welcome to <a href="https://wxharry.github.io/">my pages</a>!</p>
-<p>My goal for the blog is to record anything that might be interesting or meaningful and things that I want to share with you.</p>
-<p>I hope that the things that helps me can also shed some lights on you.</p>
-<p>Though I am not good at writing, I will try my best. </p>
-<p>Thanks!</p>
-<p>Warm Regards,</p>
-<p>Harry</p>
+            <p>2023 年发生了很多变化，从学生成为打工人；搬到了另一个城市；拥有了新的家人。生活的变化真是让人应接不暇，我们一直都在学着适应，学着生活。当发现写上一篇文章已经是去年的时候，我的强迫症犯了，2023 需要一篇文章，那就来写一篇年终总结吧 😄。<br>今年我告别了持续了 18 年的学习生涯，成为了真正的打工人。全职工作给了我财务自由（虽然根本攒不起钱）的同时也给了十足压力和挑战。不得不说在 2023 这个大环境下可以找到一份工作实属是非常幸运的（非常感谢老板和老板娘），为了能胜任这份来之不易的工作，我努力地学习和干活，却也总因为技术栈的不匹配而处处碰壁，压力倍增，有时一些基础的问题我却需要更多的时间去消化和解决。新的一年也希望我可以有更多自我提升的时间，不受限于现在，能放眼于未来。<br>半年不到的打工生活让我意识到了，打工只是为了生存，生活还是自己的。自从上班以后，我也开始学着健身和打游戏，充实的业余生活减轻了不少工作的压力。健身带来的正反馈能给予非常强烈的成就感，而游戏的快乐能带来极大的快乐。但不管是娱乐还是自我提升一个也不想落下的我有时会借用睡觉时间来完成“每日任务”，也很快也让我尝到了苦头。我想我明年的目标是能更高效地过好每一天，能在不牺牲睡眠的情况下提升自己，也许我该学会取舍，学会放弃些什么。<br>2023 年去了搬了新家来到另一个城市生活，也和彩薇一起去了很多国家和城市旅行。这是一种非常奇妙的体验，因为他们有着截然不同的气候，不同的食物，不同的语言，不同的生活，不同的文化。旅行也是对我们未来居住地的探索，银装素裹或是热情似火，鸟语花香或是车水马龙，这应该也会成为我们新一年的继续探索的未来。<br>回想 2023 居然经历了这么多，的确是个值得写年终总结的一年。而展望 2024，也将会是丰富的一年，期待新一年也是期待未来的人生。我们无法停下脚步，因为时间会推着我们前行。</p>
 
         </div>
 
@@ -231,7 +159,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://wxharry.github.io/2022/10/10/to-reader/">https://wxharry.github.io/2022/10/10/to-reader/</a></span>
+                        <span><a href="https://wxharry.github.io/2024/01/01/yuque/2023%F0%9F%8E%93/">https://wxharry.github.io/2024/01/01/yuque/2023%F0%9F%8E%93/</a></span>
                     </p>
                 
                 
@@ -259,8 +187,10 @@
         </section>
         <section class="post-nav">
             
+                <a class="prev" rel="prev" href="/2024/01/03/to-reader/">To Reader</a>
             
-            <a class="next" rel="next" href="/2022/07/14/yuque/Working%20on%20Python%20Projects/">Working on Python Projects</a>
+            
+            <a class="next" rel="next" href="/2022/07/14/yuque/Working%20on%20Python%20Project/">Working on Python Project</a>
             
         </section>
 
